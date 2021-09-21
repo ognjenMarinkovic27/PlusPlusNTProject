@@ -2,6 +2,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileReader;
 import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -13,6 +16,14 @@ public class Client {
 
         final String SERVER_IP = "hermes.plusplus.rs";
         final int PORT = 4000;
+
+        try {
+            Files.createDirectories(Paths.get("savedPacketData"));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         ShutdownHandler shutdownHandler = new ShutdownHandler();
         shutdownHandler.run();

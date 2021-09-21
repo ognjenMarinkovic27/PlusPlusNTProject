@@ -1,4 +1,5 @@
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileReader;
 import java.net.Socket;
 import java.time.Duration;
@@ -23,6 +24,8 @@ public class SavedPacketsHandler extends Thread {
         System.out.println("Checking for saved packets...");
 
         try {
+            File savedPacketsFile = new File("./savedPacketData/savedPackets.txt");
+            savedPacketsFile.createNewFile();
             FileReader fileReader = new FileReader("./savedPacketData/savedPackets.txt");
 
             String line = "";

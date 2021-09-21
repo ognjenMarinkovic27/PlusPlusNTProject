@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class ShutdownHandler extends Thread {
             @Override
             public void run() {
                 try {
-                    FileWriter savedPacketsWriter = new FileWriter("./savedPacketData/savedPackets.txt");
+                    FileWriter savedPacketsWriter = new FileWriter( "./savedPacketData/savedPackets.txt");
 
                     for (int handlerId : activePackets.keySet()) {
                         String packetDataString = "";
